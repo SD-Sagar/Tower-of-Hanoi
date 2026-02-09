@@ -508,6 +508,14 @@ header p {
         font-size: 1rem;
         letter-spacing: 0.8px;
     }
+
+    /* Simplify animated Hanoi gradient on mobile to reduce GPU usage */
+    .hanoi-text {
+        animation: none;
+        background: none;
+        -webkit-text-fill-color: #ffeaa7;
+        color: #ffeaa7;
+    }
     
     header h1 {
         font-size: 2rem;
