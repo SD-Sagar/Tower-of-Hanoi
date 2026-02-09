@@ -523,9 +523,16 @@ header p {
         padding: 0 20px;
     }
     
+    /* Completely remove animated elements on mobile */
     header h1::before,
     header h1::after {
         display: none;
+    }
+    
+    /* Disable all animations on mobile for better performance */
+    header h1 {
+        animation: none;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
     }
     
     .controls {
@@ -557,8 +564,9 @@ header p {
         padding: 15px 5px;
     }
     
-    .peg-pole {
-        height: 250px;
+    /* Disable shake animation on mobile for better performance */
+    .peg.selected::before {
+        animation: none;
     }
     
     .disk {
@@ -587,9 +595,16 @@ header p {
         padding: 0 20px;
     }
     
+    /* Completely remove animated elements on mobile */
     header h1::before,
     header h1::after {
         display: none;
+    }
+    
+    /* Disable all animations on mobile for better performance */
+    header h1 {
+        animation: none;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
     }
     
     .control-panel {
@@ -629,8 +644,9 @@ header p {
         padding: 10px 3px;
     }
     
-    .peg-pole {
-        height: 250px;
+    /* Disable shake animation on mobile for better performance */
+    .peg.selected::before {
+        animation: none;
     }
     
     .disk {
