@@ -406,21 +406,25 @@ header p {
     }
     
     .pegs-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 15px;
         min-height: auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px;
     }
     
     .peg {
-        width: 100%;
-        max-width: 250px;
-        min-height: 180px;
-        padding: 25px 15px;
+        flex: 1;
+        min-width: 100px;
+        max-width: 120px;
+        min-height: 150px;
+        padding: 15px 5px;
     }
     
     .peg-pole {
-        height: 140px;
+        height: 120px;
     }
     
     .disk {
@@ -428,15 +432,15 @@ header p {
         font-size: 14px;
     }
     
-    /* Adjust disk sizes for mobile */
-    .disk[data-size="1"] { width: 40px; }
-    .disk[data-size="2"] { width: 55px; }
-    .disk[data-size="3"] { width: 70px; }
-    .disk[data-size="4"] { width: 85px; }
-    .disk[data-size="5"] { width: 100px; }
-    .disk[data-size="6"] { width: 115px; }
-    .disk[data-size="7"] { width: 130px; }
-    .disk[data-size="8"] { width: 145px; }
+    /* Adjust disk sizes for mobile side-by-side */
+    .disk[data-size="1"] { width: 30px; }
+    .disk[data-size="2"] { width: 40px; }
+    .disk[data-size="3"] { width: 50px; }
+    .disk[data-size="4"] { width: 60px; }
+    .disk[data-size="5"] { width: 70px; }
+    .disk[data-size="6"] { width: 80px; }
+    .disk[data-size="7"] { width: 90px; }
+    .disk[data-size="8"] { width: 100px; }
 }
 
 @media (max-width: 480px) {
@@ -466,18 +470,31 @@ header p {
         font-size: 13px;
     }
     
-    .peg {
-        min-height: 160px;
-        padding: 20px 10px;
+    .pegs-container {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 10px;
+        min-height: auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 5px;
     }
     
-    /* Further adjust disk sizes for small screens */
-    .disk[data-size="1"] { width: 35px; }
-    .disk[data-size="2"] { width: 48px; }
-    .disk[data-size="3"] { width: 61px; }
-    .disk[data-size="4"] { width: 74px; }
-    .disk[data-size="5"] { width: 87px; }
-    .disk[data-size="6"] { width: 100px; }
-    .disk[data-size="7"] { width: 113px; }
-    .disk[data-size="8"] { width: 126px; }
+    .peg {
+        flex: 1;
+        min-width: 80px;
+        max-width: 100px;
+        min-height: 140px;
+        padding: 10px 3px;
+    }
+    
+    /* Further adjust disk sizes for small screens side-by-side */
+    .disk[data-size="1"] { width: 25px; }
+    .disk[data-size="2"] { width: 32px; }
+    .disk[data-size="3"] { width: 39px; }
+    .disk[data-size="4"] { width: 46px; }
+    .disk[data-size="5"] { width: 53px; }
+    .disk[data-size="6"] { width: 60px; }
+    .disk[data-size="7"] { width: 67px; }
+    .disk[data-size="8"] { width: 74px; }
 }
