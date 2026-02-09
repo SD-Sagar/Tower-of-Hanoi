@@ -29,6 +29,11 @@ class TowerOfHanoi {
         this.finalMovesElement = document.getElementById('finalMoves');
         this.finalMinMovesElement = document.getElementById('finalMinMoves');
         this.playAgainBtn = document.getElementById('playAgainBtn');
+        
+        // Audio elements
+        this.tapSound = document.getElementById('tapSound');
+        this.dropSound = document.getElementById('dropSound');
+        this.victorySound = document.getElementById('victorySound');
     }
 
     attachEventListeners() {
@@ -76,6 +81,9 @@ class TowerOfHanoi {
         this.selectedPeg = pegIndex;
         this.pegElements[pegIndex].classList.add('selected');
         
+        // Play tap sound when selecting a disk
+        this.playTapSound();
+        
         // Add visual feedback for selected disk
         const topDisk = this.disksContainers[pegIndex].lastElementChild;
         if (topDisk) {
@@ -84,7 +92,12 @@ class TowerOfHanoi {
         }
     }
 
-    deselectPeg() {
+    deselectPeg(playSound = true) {
+        // Play tap sound when deselecting (only if not part of a move)
+        if (playSound) {
+            this.playTapSound();
+        }
+        
         // Reset visual feedback for all disks
         this.disksContainers.forEach(container => {
             const disks = container.querySelectorAll('.disk');
@@ -116,9 +129,12 @@ class TowerOfHanoi {
             this.updateMoveCount();
         }
 
+        // Play drop sound when disk is successfully moved
+        this.playDropSound();
+
         // Update UI
         this.updatePegDisplay();
-        this.deselectPeg();
+        this.deselectPeg(false); // Don't play tap sound when moving disk
 
         // Check for win condition
         if (this.checkWinCondition()) {
@@ -226,6 +242,9 @@ class TowerOfHanoi {
         this.finalMovesElement.textContent = this.moveCount;
         this.finalMinMovesElement.textContent = this.minMoves;
         this.winModal.classList.add('show');
+        
+        // Play victory sound when player wins
+        this.playVictorySound();
     }
 
     hideWinModal() {
@@ -283,6 +302,28 @@ class TowerOfHanoi {
                 resolve();
             }, 600); // Delay for visual animation
         });
+    }
+
+    // Sound effect methods
+    playTapSound() {
+        if (this.tapSound) {
+            this.tapSound.currentTime = 0;
+            this.tapSound.play().catch(e => console.log('Tap sound play failed:', e));
+        }
+    }
+
+    playDropSound() {
+        if (this.dropSound) {
+            this.dropSound.currentTime = 0;
+            this.dropSound.play().catch(e => console.log('Drop sound play failed:', e));
+        }
+    }
+
+    playVictorySound() {
+        if (this.victorySound) {
+            this.victorySound.currentTime = 0;
+            this.victorySound.play().catch(e => console.log('Victory sound play failed:', e));
+        }
     }
 }
 
