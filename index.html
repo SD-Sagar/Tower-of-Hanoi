@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tower of Hanoi</h1>
+            <p>Move all disks from the left peg to the right peg</p>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="controls">
+                    <div class="disk-control">
+                        <label for="diskCount">Number of Disks:</label>
+                        <input type="number" id="diskCount" min="3" max="8" value="3">
+                    </div>
+                    <button id="newGameBtn" class="btn primary">New Game</button>
+                    <button id="autoSolveBtn" class="btn secondary">Auto-Solve</button>
+                </div>
+                <div class="game-info">
+                    <div class="move-counter">
+                        <span>Moves: </span>
+                        <span id="moveCount">0</span>
+                    </div>
+                    <div class="min-moves">
+                        <span>Minimum: </span>
+                        <span id="minMoves">7</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="game-board">
+                <div class="pegs-container">
+                    <div class="peg" data-peg="0">
+                        <div class="peg-base"></div>
+                        <div class="peg-pole"></div>
+                        <div class="disks"></div>
+                    </div>
+                    <div class="peg" data-peg="1">
+                        <div class="peg-base"></div>
+                        <div class="peg-pole"></div>
+                        <div class="disks"></div>
+                    </div>
+                    <div class="peg" data-peg="2">
+                        <div class="peg-base"></div>
+                        <div class="peg-pole"></div>
+                        <div class="disks"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="instructions">
+                <h2>How to Play</h2>
+                <ul>
+                    <li>Click a peg to pick up the top disk</li>
+                    <li>Click another peg to drop the disk</li>
+                    <li>You can only place smaller disks on top of larger ones</li>
+                    <li>Move all disks to the rightmost peg to win</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Congratulations!</h2>
+            <p>You solved the Tower of Hanoi in <span id="finalMoves">0</span> moves!</p>
+            <p>The minimum possible was <span id="finalMinMoves">0</span> moves.</p>
+            <button id="playAgainBtn" class="btn primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
